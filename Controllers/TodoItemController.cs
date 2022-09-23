@@ -47,9 +47,21 @@ namespace ToDoApplication_MVC.Controllers
         }
 
         //GET
-        public IActionResult Update()
+        public IActionResult Update(int? id)
         {
-            return View();
+            if(id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var categoryFromDb = _db.TodoItems.Find(id);
+
+            if(categoryFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(categoryFromDb);
         }
 
         //POST
