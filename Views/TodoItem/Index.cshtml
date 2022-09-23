@@ -3,8 +3,19 @@
     ViewData["Title"] = "To Do Items";
 }
 
-<h1>Index ToDo</h1>
-
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-dark">To Do List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="TodoItem" asp-action="Create" class="btn btn-dark">
+                Add Task
+            </a>
+        </div>
+    </div>
+</div>
+<br />
 <table class="table table-bordered table-striped" width="100%">
     <thead>
         <tr>
