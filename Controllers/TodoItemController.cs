@@ -31,6 +31,11 @@ namespace ToDoApplication_MVC.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(TodoItem obj)
         {
+            if(obj.Priority == "")
+            {
+                ModelState.AddModelError("Priority", "The Priority is required.");
+            }
+
             if(ModelState.IsValid)
             {
                 _db.TodoItems.Add(obj);

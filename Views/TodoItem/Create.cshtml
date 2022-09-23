@@ -1,6 +1,6 @@
 ﻿@model TodoItem
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "New Task";
 }
 
 <form method="post">
@@ -27,7 +27,7 @@
         <div class="mb-3">
             <label asp-for="Priority"></label>
             <select asp-for="Priority" class="form-select" aria-label="Priority">
-                <option selected>Select a priority</option>
+                <option value="" selected>Select a priority</option>
                 <option value="high">High</option>
                 <option value="medium">Medium</option>
                 <option value="low">Low</option>
