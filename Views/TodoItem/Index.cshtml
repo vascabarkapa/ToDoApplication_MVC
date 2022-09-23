@@ -34,6 +34,9 @@
             <th>
                 Done
             </th>
+            <th>
+
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -54,6 +57,13 @@
                 </td>
                 <td width="20%">
                     @obj.isDone
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="TodoItem" asp-action="Update" asp-route-id="@obj.Id" class="btn btn-dark mx-2 text-center">
+                            <i class="bi bi-pencil-square"></i> &nbsp; Edit
+                        </a>
+                    </div>
                 </td>
             </tr>
         }
