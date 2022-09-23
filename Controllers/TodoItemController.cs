@@ -25,5 +25,13 @@ namespace ToDoApplication_MVC.Controllers
         {
             return View();
         }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(TodoItem obj)
+        {
+            return View();
+        }
     }
 }
