@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace ToDoApplication_MVC.Models
 {
@@ -20,6 +21,7 @@ namespace ToDoApplication_MVC.Models
         public string Priority { get; set; }
 
         [Required]
+        [DisplayName("Done")]
         public bool isDone { get; set; }
     }
 }

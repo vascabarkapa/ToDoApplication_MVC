@@ -37,7 +37,7 @@
         <div class="mb-3">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" asp-for="isDone">
-                <label class="form-check-label" asp-for="isDone">Done</label>
+                <label class="form-check-label" asp-for="isDone"></label>
             </div>
         </div>
         <button type="submit" class="btn btn-dark" style="width:150px">
@@ -48,3 +48,9 @@
         </a>
     </div>
 </form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
