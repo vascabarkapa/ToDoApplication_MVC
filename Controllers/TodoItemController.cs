@@ -45,5 +45,31 @@ namespace ToDoApplication_MVC.Controllers
 
             return View(obj);
         }
+
+        //GET
+        public IActionResult Update()
+        {
+            return View();
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(TodoItem obj)
+        {
+            if (obj.Priority == "")
+            {
+                ModelState.AddModelError("Priority", "The Priority is required.");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _db.TodoItems.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(obj);
+        }
     }
 }
