@@ -31,7 +31,9 @@ namespace ToDoApplication_MVC.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(TodoItem obj)
         {
-            return View();
+            _db.TodoItems.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
