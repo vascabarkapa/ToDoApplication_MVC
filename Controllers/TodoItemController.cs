@@ -19,5 +19,11 @@ namespace ToDoApplication_MVC.Controllers
 
             return View(objTodoItemList);
         }
+
+        //GET
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
