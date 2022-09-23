@@ -1,9 +1,51 @@
-﻿
+﻿@model IEnumerable<TodoItem>
 @{
     ViewData["Title"] = "To Do Items";
 }
 
 <h1>Index ToDo</h1>
 
-<p>Use this page to detail your todos.</p>
+<table class="table table-bordered table-striped" width="100%">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Priority
+            </th>
+            <th>
+                Done
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td width="20%">
+                    @obj.Title
+                </td>
+                <td width="20%">
+                    @obj.Description
+                </td>
+                <td width="20%">
+                    @obj.Date
+                </td>
+                <td width="20%">
+                    @obj.Priority
+                </td>
+                <td width="20%">
+                    @obj.isDone
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 

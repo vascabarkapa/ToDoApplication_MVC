@@ -17,7 +17,7 @@ namespace ToDoApplication_MVC.Controllers
         {
             IEnumerable<TodoItem> objTodoItemList = _db.TodoItems;
 
-            return View();
+            return View(objTodoItemList);
         }
     }
 }
