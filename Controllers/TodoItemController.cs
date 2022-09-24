@@ -31,12 +31,12 @@ namespace ToDoApplication_MVC.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(TodoItem obj)
         {
-            if(obj.Priority == "")
+            if (obj.Priority == "")
             {
                 ModelState.AddModelError("Priority", "The Priority is required.");
             }
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _db.TodoItems.Add(obj);
                 _db.SaveChanges();
@@ -49,14 +49,14 @@ namespace ToDoApplication_MVC.Controllers
         //GET
         public IActionResult Update(int? id)
         {
-            if(id == null || id == 0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
 
             var categoryFromDb = _db.TodoItems.Find(id);
 
-            if(categoryFromDb == null)
+            if (categoryFromDb == null)
             {
                 return NotFound();
             }
@@ -82,6 +82,40 @@ namespace ToDoApplication_MVC.Controllers
             }
 
             return View(obj);
+        }
+
+        //GET
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var categoryFromDb = _db.TodoItems.Find(id);
+
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(categoryFromDb);
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteTodo(int? id)
+        {
+            var obj = _db.TodoItems.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            _db.TodoItems.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
