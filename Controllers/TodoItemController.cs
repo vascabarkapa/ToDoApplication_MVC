@@ -76,7 +76,7 @@ namespace ToDoApplication_MVC.Controllers
 
             if (ModelState.IsValid)
             {
-                _db.TodoItems.Add(obj);
+                _db.TodoItems.Update(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
