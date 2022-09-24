@@ -9,13 +9,14 @@ namespace ToDoApplication_MVC.Models
         public int Id { get; set; }
 
         [Required]
-        public string Title { get; set; }
+        public string Name { get; set; }
 
         [Required]
         public string Description { get; set; }
 
         [Required]
-        public DateTime Date { get; set; }
+        [DisplayName("Date and Time")]
+        public DateTime DateAndTime { get; set; }
 
         [Required]
         public string Priority { get; set; }

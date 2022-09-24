@@ -12,7 +12,7 @@ using ToDoApplication_MVC.Data;
 namespace ToDoApplication_MVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220923174804_AddTodoItemToDatabase")]
+    [Migration("20220924170629_AddTodoItemToDatabase")]
     partial class AddTodoItemToDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,18 +32,18 @@ namespace ToDoApplication_MVC.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime>("DateAndTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Priority")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("Priority")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
