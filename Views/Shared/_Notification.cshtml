@@ -2,3 +2,8 @@
 {
     <h2>@TempData["success"]</h2>
 }
+
+@if(TempData["error"] != null)
+{
+    <h2>@TempData["error"]</h2>
+}
