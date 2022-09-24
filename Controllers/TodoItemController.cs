@@ -40,6 +40,7 @@ namespace ToDoApplication_MVC.Controllers
             {
                 _db.TodoItems.Add(obj);
                 _db.SaveChanges();
+                TempData["success"] = "New Task added successfully!";
                 return RedirectToAction("Index");
             }
 
@@ -78,6 +79,7 @@ namespace ToDoApplication_MVC.Controllers
             {
                 _db.TodoItems.Update(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Task updated successfully!";
                 return RedirectToAction("Index");
             }
 
@@ -115,6 +117,7 @@ namespace ToDoApplication_MVC.Controllers
 
             _db.TodoItems.Remove(obj);
             _db.SaveChanges();
+            TempData["success"] = "Task deleted successfully!";
             return RedirectToAction("Index");
         }
     }
