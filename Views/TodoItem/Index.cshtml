@@ -56,14 +56,21 @@
                     @obj.Priority
                 </td>
                 <td width="20%">
-                    @obj.isDone
+                    @if(@obj.isDone)
+                    {
+                        <i class="bi bi-check-lg"></i>
+                    }
+                    else
+                    {
+                        <i class="bi bi-x-lg"></i>
+                    }
                 </td>
                 <td>
                     <div class="w-75 btn-group" role="group">
-                        <a asp-controller="TodoItem" asp-action="Update" asp-route-id="@obj.Id" class="btn btn-dark mx-2 text-center">
+                        <a asp-controller="TodoItem" asp-action="Update" asp-route-id="@obj.Id" class="btn btn-dark rounded mx-2 text-center">
                             <i class="bi bi-pencil-square"></i> &nbsp; Edit
                         </a>
-                        <a asp-controller="TodoItem" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2 text-center">
+                        <a asp-controller="TodoItem" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger rounded mx-2 text-center">
                             <i class="bi bi-trash"></i> &nbsp; Delete
                         </a>
                     </div>
